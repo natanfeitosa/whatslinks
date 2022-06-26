@@ -1,0 +1,32 @@
+#:kivy 2.1.0
+
+<MainWindow>:
+    name: 'MainWindow'
+    # orientation: 'vertical'
+
+    MyScreenManager:
+        id: manager
+    
+    # MDBottomAppBar:
+    MDFloatLayout:
+        md_bg_color: app.theme_cls.primary_color
+        
+        size_hint: None, None
+        height: root.ids.homebtn.height * 1.4
+        width: root.width
+        MDRaisedButton:
+            id: homebtn
+            pos_hint: {'center_x': .14, 'center_y': .5}
+            text: 'HOME'
+            on_release:
+                root.change_screen('Home')
+        MDRaisedButton:
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            text: 'QRCODE'
+            on_release:
+                root.change_screen('QRCode')
+        MDRaisedButton:
+            pos_hint: {'center_x': .84, 'center_y': .5}
+            text: 'HISTORY'
+            on_release:
+                root.change_screen('History')
