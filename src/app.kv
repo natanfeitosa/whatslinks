@@ -2,31 +2,43 @@
 
 MainWindow:
     name: 'MainWindow'
-    # orientation: 'vertical'
-
-    MyScreenManager:
-        id: manager
-    
-    # MDBottomAppBar:
-    MDFloatLayout:
-        md_bg_color: app.theme_cls.primary_color
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'WhatsLinks'
+            elevation: 10
+            # right_action_items: [['dots-vertical', lambda x: x]]
+            use_overflow: True
+            right_action_items:
+                [
+                ['theme-light-dark', lambda x: app.change_color_mode(), 'Change color mode', 'Change mode color'],
+                ['translate', lambda x: x, 'Change language', 'Change language'],
+                ['information-outline', lambda x: x, 'About', 'About'],
+                ]
         
-        size_hint: None, None
-        height: root.ids.homebtn.height * 1.4
-        width: root.width
-        MDRaisedButton:
-            id: homebtn
-            pos_hint: {'center_x': .14, 'center_y': .5}
-            text: 'HOME'
-            on_release:
-                root.change_screen('Home')
-        MDRaisedButton:
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            text: 'QRCODE'
-            on_release:
-                root.change_screen('QRCode')
-        MDRaisedButton:
-            pos_hint: {'center_x': .84, 'center_y': .5}
-            text: 'HISTORY'
-            on_release:
-                root.change_screen('History')
+        MyScreenManager:
+            id: manager
+        
+        # MDBottomAppBar:
+        MDFloatLayout:
+            md_bg_color: app.theme_cls.primary_color
+            
+            size_hint: None, None
+            height: root.ids.homebtn.height * 1.4
+            width: root.width
+            MDRaisedButton:
+                id: homebtn
+                pos_hint: {'center_x': .14, 'center_y': .5}
+                text: 'HOME'
+                on_release:
+                    root.change_screen('Home')
+            MDRaisedButton:
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                text: 'QRCODE'
+                on_release:
+                    root.change_screen('QRCode')
+            MDRaisedButton:
+                pos_hint: {'center_x': .84, 'center_y': .5}
+                text: 'HISTORY'
+                on_release:
+                    root.change_screen('History')

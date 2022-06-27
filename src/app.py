@@ -42,7 +42,6 @@ class MainWindow(Screen):
 
     def change_screen(self, screen_name):
         manager: ScreenManager = self.ids.manager
-        # manager.switch_to(manager.get_screen(screen_name))
         manager.current = screen_name
 
 class App(MDApp):
@@ -50,6 +49,12 @@ class App(MDApp):
         super().__init__(**kwargs)
         self.load_all_kv_files(self.directory)
     
+    def change_color_mode(self):
+        if self.theme_cls.theme_style == 'Dark':
+            self.theme_cls.theme_style = 'Light'
+            return
+        self.theme_cls.theme_style = 'Dark'
+
     def build(self):
         self.theme_cls.primary_palette = 'Teal'
         self.theme_cls.primary_hue = '800'
