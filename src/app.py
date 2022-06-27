@@ -53,7 +53,7 @@ class App(MDApp):
     def build(self):
         self.theme_cls.primary_palette = 'Teal'
         self.theme_cls.primary_hue = '800'
-        return MainWindow()
+        return super().build()
     
     # def change_screen(self, instance):
     #     print(dir(self.get_running_app()))
